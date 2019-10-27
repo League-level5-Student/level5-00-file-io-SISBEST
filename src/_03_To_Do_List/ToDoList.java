@@ -1,6 +1,12 @@
 package _03_To_Do_List;
 
-public class ToDoList {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.*;
+
+public class ToDoList implements ActionListener {
 	/*
 	 * Create a program with five buttons, add task, view tasks, remove task, save list, and load list. 
 	 * 
@@ -21,4 +27,68 @@ public class ToDoList {
 	 * 
 	 * When the program starts, it should automatically load the last saved file into the list.
 	 */
+	ArrayList<String> list = new ArrayList<String>();
+	JFrame fr = new JFrame("S To-Do");
+	JPanel f = new JPanel();
+	JButton add = new JButton("Add Task");
+	JButton view = new JButton("View Task List");
+	JButton remove = new JButton("Remove Task");
+	JButton save = new JButton("Save Task List");
+	JButton load = new JButton("Load Task List");
+	public static void main(String[] args) {
+		ToDoList tdl = new ToDoList();
+		tdl.setup();
+	}
+
+	private void setup() {
+		f.add(add);
+		f.add(view);
+		f.add(remove);
+		f.add(save);
+		f.add(load);
+		add.addActionListener(this);
+		view.addActionListener(this);
+		remove.addActionListener(this);
+		save.addActionListener(this);
+		load.addActionListener(this);
+		fr.add(f);
+		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fr.setVisible(true);
+		fr.pack();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(add)) {
+			String add = JOptionPane.showInputDialog(null, "Enter an item to add to To-Do list:", "Add Item To To-Do List", JOptionPane.QUESTION_MESSAGE);
+			list.add(add);
+		}
+		if(e.getSource().equals(view)) {
+					String todolist = "";
+					if(list.size() == 0) {
+						JOptionPane.showMessageDialog(null, "Nothing here yet!", "View Items In To-Do List", JOptionPane.INFORMATION_MESSAGE);
+						distract();
+					}
+					else {
+					for(int i = 0; i<list.size(); i++) {
+						todolist+="Item # "+i+": ";
+						todolist+=list.get(i)+"\n";
+					}
+					JOptionPane.showMessageDialog(null, "Your list: \n"+todolist, "View Items In To-Do List", JOptionPane.INFORMATION_MESSAGE);
+					}
+					}
+		if(e.getSource().equals(remove)) {
+			
+		}
+		if(e.getSource().equals(save)) {
+			
+		}
+		if(e.getSource().equals(load)) {
+			
+		}
+		
+	}
+	void distract() {
+		
+	}
 }
