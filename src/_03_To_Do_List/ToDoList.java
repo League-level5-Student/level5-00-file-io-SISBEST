@@ -78,7 +78,8 @@ public class ToDoList implements ActionListener {
 					}
 					}
 		if(e.getSource().equals(remove)) {
-			
+			String i = JOptionPane.showInputDialog(null, "Enter the index of item you would like to remove:", "Remove Item From To-Do List", JOptionPane.QUESTION_MESSAGE);
+			list.remove(Integer.parseInt(i));
 		}
 		if(e.getSource().equals(save)) {
 			
