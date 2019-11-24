@@ -14,7 +14,7 @@ public class PixelArtMaker implements MouseListener{
 	
 	public void start() {
 		gip = new GridInputPanel(this);	
-		window = new JFrame("Pixel Art");
+		window = new JFrame("Samuel Pixel Art Maker 2");
 		window.setLayout(new FlowLayout());
 		window.setResizable(false);
 		
